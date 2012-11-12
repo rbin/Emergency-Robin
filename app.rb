@@ -19,7 +19,7 @@ post '/voice' do
 		  r.say 'Press 1 to here Robin tell you how much he loves you.', voice: 'man'
 		  r.say 'Press 2 to here an inspirational Pep Talk.', voice: 'man'
 		  r.say 'Press 3 to here a joke.', voice: 'man'
-		  r.say 'Or press 4 to here Robin do an impression of Lord Voldemort.', voice: 'man'		  
+		  r.say 'Or press 4 to here Robin do an impression of Lord Vol-de-mort.', voice: 'man'		  
 		  r.say 'Press 5 to leave a message for Robin.', voice: 'woman'
 		  r.pause
 		end
@@ -32,6 +32,7 @@ post '/play' do
 	  	s.play 'http://rbin.co/sounds/love.mp3'
 	  	s.say 'Thankyou, and Goodbye.'
 	  	s.hangup
+	  end	
 	else
 		Twilio::TwiML.build { |r| r.say 'NO THIS IS BROKEN', voice: 'man' }
 	end
