@@ -20,8 +20,7 @@ post '/voice' do
 	  r.say 'Press 3 to here a joke.', voice: 'man'
 	  r.say 'Or press 4 to here Robin do an impression of Lord Voldemort.', voice: 'man'
 	  r.say 'Press 5 to leave a message for Robin.', voice: 'woman'
-	  r.gather :action => "/play", :method => "POST"
-	  r.hangup
+	  r.gather :action => "/play.php", :method => "POST", :timeout="5", :finishOnKey="#", :numDigits="5"
 	end  
 end
 
