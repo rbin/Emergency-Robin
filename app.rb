@@ -28,7 +28,10 @@ end
 
 post '/play' do
 	if params[:Digits] == '1'
-	  Twilio::TwiML.build { |r| r.play 'http://rbin.co/sounds/love.mp3' }
+	  Twilio::TwiML.build do |s| 
+	  	s.play 'http://rbin.co/sounds/love.mp3'
+	  	s.say 'Thankyou, and Goodbye.'
+	  	s.hangup
 	else
 		Twilio::TwiML.build { |r| r.say 'NO THIS IS BROKEN', voice: 'man' }
 	end
