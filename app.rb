@@ -28,7 +28,7 @@ end
 
 post '/play' do
 	if params[:Digits] == '1'
-	  Twilio::TwiML.build { |r| r.play 'https://api.twilio.com/cowbell.mp3' }
+	  Twilio::TwiML.build { |r| r.play 'http://rbin.co/sounds/love.mp3' }
 	else
 		Twilio::TwiML.build { |r| r.say 'NO THIS IS BROKEN', voice: 'man' }
 	end
