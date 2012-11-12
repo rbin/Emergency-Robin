@@ -30,11 +30,30 @@ post '/play' do
 	if params[:Digits] == '1'
 	  Twilio::TwiML.build do |s| 
 	  	s.play 'http://rbin.co/sounds/love.mp3'
-	  	s.say 'Thankyou, and Goodbye.'
+	  	s.say 'Thankyou. Goodbye.'
+	  	s.pause 1
 	  	s.hangup
 	  end	
-	else
-		Twilio::TwiML.build { |r| r.say 'NO THIS IS BROKEN', voice: 'man' }
+	else if params[:Digits] == '2'
+		Twilio::TwiML.build do |s| 
+	  	s.play 'http://rbin.co/sounds/peptalk.mp3'
+	  	s.say 'Thankyou. Goodbye.'
+	  	s.pause 1
+	  	s.hangup
+	end
+	else if params[:Digits] == '3'
+		Twilio::TwiML.build do |s| 
+	  	s.play 'http://rbin.co/sounds/joke.mp3'
+	  	s.say 'Thankyou. Goodbye.'
+	  	s.pause 1
+	  	s.hangup
+	end
+	else if params[:Digits] == '4'
+		Twilio::TwiML.build do |s| 
+	  	s.play 'http://rbin.co/sounds/lordvoldemort.mp3'
+	  	s.say 'Thankyou. Goodbye.'
+	  	s.pause 1
+	  	s.hangup
 	end
 end    	
 
