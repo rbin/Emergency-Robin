@@ -40,6 +40,7 @@ post '/play' do
 	  	s.say 'Thankyou. Goodbye.'
 	  	s.pause 1
 	  	s.hangup
+	  end	
 	end
 	elsif params[:Digits] == '3'
 		Twilio::TwiML.build do |s| 
@@ -47,6 +48,7 @@ post '/play' do
 	  	s.say 'Thankyou. Goodbye.'
 	  	s.pause 1
 	  	s.hangup
+	  end	
 	end
 	elsif params[:Digits] == '4'
 		Twilio::TwiML.build do |s| 
@@ -54,12 +56,14 @@ post '/play' do
 	  	s.say 'Thankyou. Goodbye.'
 	  	s.pause 1
 	  	s.hangup
+	  end	
 	end
 	else
 		Twilio::TwiML.build do |s|
 			s.say 'BROKEN'
 			s.hangup
 		end	
+	end	
 end    	
 
 get '/voice' do
