@@ -27,7 +27,7 @@ post '/voice' do
 end
 
 post '/play' do
-	if params[:Digits == '1']
+	if params[:Digits] == '1'
 	  Twilio::TwiML.build { |r| r.play 'love.mp3' }
 	else
 		Twilio::TwiML.build { |r| r.say 'NO THIS IS BROKEN', voice: 'man' }
