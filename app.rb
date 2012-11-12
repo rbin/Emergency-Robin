@@ -2,6 +2,10 @@ require 'bundler'
 require 'sinatra'
 require 'haml'
 require 'twilio-rb'
+require 'sinatra/synchrony'
+require 'em-synchrony/em-http'
+require 'em-synchrony/em-hiredis'
+require 'soundcloud'
 
 Twilio::Config.setup \
   account_sid: ENV['ACacce7accff8f3b232da7f94d4b7c05ea'],
@@ -10,6 +14,11 @@ Twilio::Config.setup \
 get '/' do
 	haml :index
 end
+
+get '/messages' do
+	@recordings = redis.lrange 'recordings', 0, 24
+	haml :messages
+end	
 
 post '/voice' do
 	Twilio::TwiML.build do |res|	
@@ -56,13 +65,52 @@ post '/play' do
 	  	s.hangup
 	  end	
 	else
-		Twilio::TwiML.build do |s|
-			s.say 'BROKEN'
-			s.hangup
+		Twilio::TwiML.build do |r|
+	    r.say 'leave a message for Robin after the beep', voice: 'woman'
+	    r.record action: '/record', max_length: 30
 		end	
 	end	
-end    	
+end
 
-get '/voice' do
-	haml :voice
-end	
+post '/record' do
+  EM.next_tick do
+    Fiber.new do
+      if url = params['RecordingUrl']
+      
+        # Race condition in Twilio API #AWKWARD!
+        EM::Synchrony.sleep(1)
+
+        audio = EM::HttpRequest.new(url + ".mp3").get.response
+
+        sound = soundcloud.post('/tracks', track: {
+          title:      "Message from *******#{params['From'][-4,4]}",
+          asset_data: Tempfile.new('recording').tap { |f| f.binmode; f.write audio; f.rewind }
+        })
+
+        redis.lpush 'recordings', sound[:uri]
+        
+        # Temp remove this. SoundCloud takes way too long to get files ready for a real-time element to be practical
+        # Pusher['emergencyrobin'].trigger_async 'new_recording', uri: CGI.escape(sound[:uri])
+
+        Twilio::SMS.create to: params['From'], from: params['To'],
+          body: "Thanks for your message. Go to http://lovefromrob.in for a little bit of Love, from Robin x"
+
+      end
+    end.resume
+  end
+
+  Twilio::TwiML.build { |r| r.say 'thanks! goodbye', voice: 'woman' }
+end
+
+def soundcloud
+  @soundcloud ||= Soundcloud.new \
+    client_id:     ENV['17d03c7d6d25934e43f7e23765f717bd'],
+    client_secret: ENV['cbb71ecaec6ac445150ec9c2d43e026f'],
+    username:      ENV['Rbin'],
+    password:      ENV['Hamm3r10']
+end
+
+def redis
+   $redis ||= EM::Hiredis.connect ENV['REDISTOGO_URL']
+end
+

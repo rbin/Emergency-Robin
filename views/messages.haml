@@ -1,0 +1,8 @@
+.container
+	%h1
+		Bootstrap starter template
+		
+	%ul#messages
+        - @recordings.each do |recording|
+          %li
+            %iframe{ width: "100%", height: "166", scrolling: "no", frameborder: "no", src: "http://w.soundcloud.com/player/?url=#{CGI.escape recording}&show_artwork=false" }
