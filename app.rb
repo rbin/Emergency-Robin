@@ -34,21 +34,21 @@ post '/play' do
 	  	s.pause 1
 	  	s.hangup
 	  end	
-	else if params[:Digits] == '2'
+	elsif params[:Digits] == '2'
 		Twilio::TwiML.build do |s| 
 	  	s.play 'http://rbin.co/sounds/peptalk.mp3'
 	  	s.say 'Thankyou. Goodbye.'
 	  	s.pause 1
 	  	s.hangup
 	end
-	else if params[:Digits] == '3'
+	elsif params[:Digits] == '3'
 		Twilio::TwiML.build do |s| 
 	  	s.play 'http://rbin.co/sounds/joke.mp3'
 	  	s.say 'Thankyou. Goodbye.'
 	  	s.pause 1
 	  	s.hangup
 	end
-	else if params[:Digits] == '4'
+	elsif params[:Digits] == '4'
 		Twilio::TwiML.build do |s| 
 	  	s.play 'http://rbin.co/sounds/lordvoldemort.mp3'
 	  	s.say 'Thankyou. Goodbye.'
