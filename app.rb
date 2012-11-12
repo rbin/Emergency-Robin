@@ -21,14 +21,14 @@ post '/voice' do
 		  r.say 'Press 3 to here a joke.', voice: 'man'
 		  r.say 'Or press 4 to here Robin do an impression of Lord Voldemort.', voice: 'man'		  
 		  r.say 'Press 5 to leave a message for Robin.', voice: 'woman'
-		  r.pause 5
+		  r.pause
 		end
 	end  
 end
 
 post '/play' do
 	if params[:Digits] == '1'
-	  Twilio::TwiML.build { |r| r.play 'love.mp3' }
+	  Twilio::TwiML.build { |r| r.play 'https://api.twilio.com/cowbell.mp3' }
 	else
 		Twilio::TwiML.build { |r| r.say 'NO THIS IS BROKEN', voice: 'man' }
 	end
