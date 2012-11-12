@@ -13,24 +13,23 @@ end
 
 post '/voice' do
 	Twilio::TwiML.build do |res|	
-	  res.gather action: '/play.php', method: 'POST', numDigits: 5	do |r|
+	  res.gather action: '/play.php', method: 'POST', numDigits: 1	do |r|
 		  r.say 'Welcome to Robins Emergency Bad Day Hotline.', voice: 'man'
 		  r.say 'To cheer yourself up, listen to the following options.', voice: 'man'
 		  r.say 'Press 1 to here Robin tell you how much he loves you.', voice: 'man'
 		  r.say 'Press 2 to here an inspirational Pep Talk.', voice: 'man'
 		  r.say 'Press 3 to here a joke.', voice: 'man'
-		  r.say 'Or press 4 to here Robin do an impression of Lord Voldemort.', voice: 'man'
-		  r.pause 2
+		  r.say 'Or press 4 to here Robin do an impression of Lord Voldemort.', voice: 'man'		  
 		  r.say 'Press 5 to leave a message for Robin.', voice: 'woman'
+		  r.pause 5
 		end
 		res.say 'Thankyou!', voice: 'man'
-		res.hangup  
 	end  
 end
 
 get '/voice' do
 	Twilio::TwiML.build do |res|	
-	  res.gather action: '/play.php', method: 'POST', numDigits: 5	do |r|
+	  res.gather action: '/play.php', method: 'POST', numDigits: 1	do |r|
 		  r.say 'Welcome to Robins Emergency Bad Day Hotline.', voice: 'man'
 		  r.say 'To cheer yourself up, listen to the following options.', voice: 'man'
 		  r.say 'Press 1 to here Robin tell you how much he loves you.', voice: 'man'
