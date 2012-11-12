@@ -21,7 +21,7 @@ post '/voice' do
 		  r.say 'Press 3 to here a joke.', voice: 'man'
 		  r.say 'Or press 4 to here Robin do an impression of Lord Vol-de-mort.', voice: 'man'		  
 		  r.say 'Press 5 to leave a message for Robin.', voice: 'woman'
-		  r.pause
+		  r.pause 1
 		end
 	end  
 end
