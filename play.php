@@ -8,7 +8,7 @@
 
 	if ($user_pushed == 1)
 	{
-		echo '<Play>/sounds/love.mp3</Play>';
+		echo '<Play>sounds/love.mp3</Play>';
 	}
 	elseif ($user_pushed == 2)
 	{
