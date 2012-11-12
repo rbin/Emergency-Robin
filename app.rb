@@ -11,7 +11,7 @@ get '/' do
 	haml :index
 end
 
-post '/voice' do
+get_or_post '/voice' do
 	Twilio::TwiML.build do |res|	
 	  res.gather action: '/play.php', method: 'GET', numDigits: 5	do |r|
 		  r.say 'Welcome to Robins Emergency Bad Day Hotline.', voice: 'man'
@@ -20,7 +20,7 @@ post '/voice' do
 		  r.say 'Press 2 to here an inspirational Pep Talk.', voice: 'man'
 		  r.say 'Press 3 to here a joke.', voice: 'man'
 		  r.say 'Or press 4 to here Robin do an impression of Lord Voldemort.', voice: 'man'
-		  r.pause '2'
+		  r.pause 2
 		  r.say 'Press 5 to leave a message for Robin.', voice: 'woman'
 		end
 		res.say 'Thankyou!', voice: 'man'
