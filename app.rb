@@ -55,6 +55,11 @@ post '/play' do
 	  	s.pause 1
 	  	s.hangup
 	end
+	else
+		Twilio::TwiML.build do |s|
+			s.say 'BROKEN'
+			s.hangup
+		end	
 end    	
 
 get '/voice' do
