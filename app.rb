@@ -1,3 +1,4 @@
+require 'bundler'
 require 'sinatra'
 require 'haml'
 require 'twilio-rb'
