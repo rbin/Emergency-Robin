@@ -8,8 +8,8 @@ require 'em-synchrony/em-hiredis'
 require 'soundcloud'
 
 Twilio::Config.setup \
-  account_sid: ENV['ACacce7accff8f3b232da7f94d4b7c05ea'],
-  auth_token:  ENV['d182a62755fd30ea218f969ad01d523d']
+  account_sid: ENV['ACC_ID_HERE'],
+  auth_token:  ENV['AUTH_TOKEN_YO']
 
 get '/' do
 	haml :index
@@ -104,10 +104,10 @@ end
 
 def soundcloud
   @soundcloud ||= Soundcloud.new \
-    client_id:     ENV['17d03c7d6d25934e43f7e23765f717bd'],
-    client_secret: ENV['cbb71ecaec6ac445150ec9c2d43e026f'],
-    username:      ENV['Rbin'],
-    password:      ENV['Hamm3r10']
+    client_id:     ENV['ID_HERE'],
+    client_secret: ENV['SECRET_HERE'],
+    username:      ENV['USERNAME'],
+    password:      ENV['PASSWORD']
 end
 
 def redis
