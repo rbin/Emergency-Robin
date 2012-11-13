@@ -36,7 +36,7 @@ Whichever option they pick, plays the relative sound clip for their request.
 
 Option 5 of the Twilio 'gather' is to leave Robin a voice message. (To say thanks for cheering me up!)
 
-If option 5 is selected, Twilio records the voice clip, sends it via Pusher to Soundcloud, and pulls the hosted MP3 back to the main website to be displayed on the homepage.
+If option 5 is selected, Twilio records the voice clip, sends it via Syncrony to Soundcloud, and pulls the hosted MP3 back to the main website to be displayed on the messages page.
 
 
 

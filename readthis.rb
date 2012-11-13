@@ -10,7 +10,8 @@ Give Robin a call, TOLL FREE, on +44 800 011 9544
 
 Robin is guaranteed to cheer you up!!
 
-http://salty-fjord-6229.herokuapp.com/
+http://infinite-peak-4683.herokuapp.com/
+
 
 
 ============
@@ -39,7 +40,7 @@ Whichever option they pick, plays the relative sound clip for their request.
 
 Option 5 of the Twilio 'gather' is to leave Robin a voice message. (To say thanks for cheering me up!)
 
-If option 5 is selected, Twilio records the voice clip, sends it via pusher to Soundcloud, and pulls the hosted MP3 back to the main website to be displayed on the homepage.
+If option 5 is selected, Twilio records the voice clip, sends it via syncrony to Soundcloud, and pulls the hosted MP3 back to the main website to be displayed on the homepage.
 
 
 
