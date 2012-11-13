@@ -1,7 +1,5 @@
 =begin
 
-INSPIRED BY ROB SPECTRE'S - SOMEBODY PUT SOMETHING IN MY RING APP! THANKS ROB!
-
 ===================================
 ROBINS EMERGENCY BAD DAY HELPLINE!
 ===================================
@@ -48,6 +46,7 @@ If option 5 is selected, Twilio records the voice clip, sends it via pusher to S
 ================
 INSPIRATIONS!
 ================
+INSPIRED BY ROB SPECTRE'S - SOMEBODY PUT SOMETHING IN MY RING APP! THANKS ROB!
 
 This app was inspired by <a href="https://github.com/RobSpectre" target="_blank">Rob Spectre's<a>  'Somebody put something in my Ring' App.
 His original App was writted in Python, so here's an alternate idea, in Ruby. :)

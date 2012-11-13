@@ -1,18 +1,55 @@
 body {
-	padding-top: 40px;
 	padding-bottom: 40px;
+	background: url('/img/bg.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover; /*for webKit*/
+        -moz-background-size: cover; /*Mozilla*/
+        -o-background-size: cover; /*opera*/
+        background-size: cover; /*generic*/
 }
+
+#main, .footer {
+  padding: 20px; }
+
+.brand {
+  font-size: 22px !important;
+  padding-right: 30px !important; }
+
+.navbar .nav > li > a {
+  padding-right: 20px;
+  font-size: 15px !important;
+  color: #800606;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0px 1px 0px white; }
 
 #container ul {
 	margin: 35px 0;
 }
 
-ul li {
+#container ul li {
 	margin: 20px 0;
 	list-style-type: none;
 }
 
-ul li iframe {
+#container ul li iframe {
 	box-shadow: 0px 1px 2px #444;
 	background: #fafafa;
+}
+
+h1.home {
+	font-size: 40px;
+	color: #FFF;
+	text-shadow: 2px 0px 2px #800606;
+	padding-top: 50px;
+	text-align: center;
+	font-family: 'Lobster', cursive;
+}
+
+h2.call {
+	color: #fff;
+	font-size: 40px;
+	text-shadow: 2px 0px 3px #800606;
+	padding-top: 50px;
+	text-align: center;
+	font-family: 'Lobster', cursive;
 }
